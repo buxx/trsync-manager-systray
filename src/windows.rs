@@ -1,4 +1,4 @@
-use gtk;
+use std::mpsc::channel;
 use tray_item::TrayItem;
 
 enum Message {
