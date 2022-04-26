@@ -1,12 +1,12 @@
-use std::mpsc::channel;
+use std::sync::mpsc;
 use tray_item::TrayItem;
 
 enum Message {
     Quit,
 }
 
-pub fn run_tray(configure_bin_path: &PathBuf) -> Result<(), String> {
-    let mut tray = match TrayItem::new("Tracim", "emblem-shared") {
+pub fn run_tray() -> Result<(), String> {
+    let mut tray = match TrayItem::new("Tracim", "my-icon-name") {
         Ok(tray_) => tray_,
         Err(error) => return Err(format!("Unable to create tray item : '{}'", error)),
     };
