@@ -19,7 +19,10 @@
                     "kind": "bin"
                 }
             },
-            "args": [],
+            "args": [
+                "/home/bastiensevajol/Projets/trsync-manager/target/debug/trsync-manager",
+                "/home/bastiensevajol/Projets/trsync-manager-configure/build/run/run"
+            ],
             "cwd": "${workspaceFolder}"
         },
         {

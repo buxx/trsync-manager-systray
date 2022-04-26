@@ -5,7 +5,7 @@ enum Message {
     Quit,
 }
 
-pub fn run_tray() -> Result<(), String> {
+pub fn run_tray(configure_bin_path: &PathBuf) -> Result<(), String> {
     let mut tray = match TrayItem::new("Tracim", "emblem-shared") {
         Ok(tray_) => tray_,
         Err(error) => return Err(format!("Unable to create tray item : '{}'", error)),

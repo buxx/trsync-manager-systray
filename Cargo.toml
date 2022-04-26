@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 tray-item = "0.7.0"
+structopt = "0.3.23"
 
 [target.'cfg(unix)'.dependencies]
 gtk = "0.15.4"
