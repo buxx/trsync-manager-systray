@@ -42,7 +42,15 @@ fn main() {
             config.trsync_manager_configure_bin_path.clone()
         };
 
-    let mut manager_child = Command::new(trsync_manager_bin_path).spawn().unwrap();
+    let mut manager_child = if cfg!(target_os = "windows") {
+        Command::new("cmd")
+            .arg("/c")
+            .arg(trsync_manager_bin_path)
+            .spawn()
+            .unwrap()
+    } else {
+        Command::new(trsync_manager_bin_path).spawn().unwrap()
+    };
 
     #[cfg(target_os = "linux")]
     {
